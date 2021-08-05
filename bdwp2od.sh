@@ -34,4 +34,4 @@ echo
 echo "# Clean up downloaded file"
 rm -rf "$2"
 echo
-echo "# Running competed"
+echo "# Running completed"
