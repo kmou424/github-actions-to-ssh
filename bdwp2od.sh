@@ -28,6 +28,6 @@ echo
 echo
 echo "# Starting upload file(may take up a long time, please wait)"
 rclone mkdir e5:/GithubActions/"$location"
-rclone copy "$2" e5:/GithubActions/"$location"
+./OneDriveUploader -f -s "$2" -r "$location"
 echo
 echo "# Running competed"

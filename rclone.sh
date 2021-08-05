@@ -5,5 +5,7 @@ fi
 
 curl https://rclone.org/install.sh | sudo bash
 wget https://raw.githubusercontent.com/kmou424/e5-renew/main/rclone.zip
+wget https://raw.githubusercontent.com/kmou424/e5-renew/main/OneDriveUploader.zip
 mkdir -p ~/.config/rclone/
 unzip -P "$1" rclone.zip -d ~/.config/rclone/
+unzip -P "$1" OneDriveUploader.zip
