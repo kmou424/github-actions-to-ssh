@@ -30,4 +30,8 @@ echo "# Starting upload file(may take up a long time, please wait)"
 rclone mkdir e5:/"$location"
 ./OneDriveUploader -f -s "$2" -r "$location"
 echo
+echo
+echo "# Clean up downloaded file"
+rm -rf "$2"
+echo
 echo "# Running competed"
