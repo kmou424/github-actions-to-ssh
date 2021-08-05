@@ -23,7 +23,7 @@ fi
 
 echo
 echo "# Starting download file"
-wget --user-agent="LogStatistic" "$1" -O "$2"
+aria2c -s16 -x16 -k1M --user-agent="LogStatistic" "$1" -o "$2"
 echo
 echo
 echo "# Starting upload file(may take up a long time, please wait)"

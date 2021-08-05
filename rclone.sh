@@ -3,6 +3,7 @@ if [ -z $1 ];then
         exit 1
 fi
 
+sudo apt install aria2
 curl https://rclone.org/install.sh | sudo bash
 wget https://raw.githubusercontent.com/kmou424/e5-renew/main/rclone.zip
 wget https://raw.githubusercontent.com/kmou424/e5-renew/main/OneDriveUploader.zip
