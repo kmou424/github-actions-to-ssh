@@ -9,14 +9,14 @@ if [ -z $2 ];then
 fi
 
 if [ -z $3 ];then
-	location="/GithubActions"
-	echo "Not detect upload location you inputed, use default: $location"
+	location="GithubActions"
+	echo "Not detect upload location you inputed, use default: /$location"
 else
 	location_temp="$3"
 	if [ ${location_temp:0:1} = "/" ];then
-		location="/GithubActions$3"
+		location="GithubActions$3"
 	else
-		location="/GithubActions/$3"
+		location="GithubActions/$3"
 	fi
 	echo "Detected custom location settings, your files will be upload to $location"
 fi
@@ -27,7 +27,7 @@ wget --user-agent="LogStatistic" "$1" -O "$2"
 echo
 echo
 echo "# Starting upload file(may take up a long time, please wait)"
-rclone mkdir e5:/GithubActions/"$location"
+rclone mkdir e5:/"$location"
 ./OneDriveUploader -f -s "$2" -r "$location"
 echo
 echo "# Running competed"
