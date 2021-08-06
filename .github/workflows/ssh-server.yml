@@ -17,4 +17,4 @@ jobs:
           chmod +x ./ssh-server.sh &&  ./ssh-server.sh
      - name: Sleep
        if: ${{ failure() }}
-       run: sleep 4h
+       run: sleep 6h
