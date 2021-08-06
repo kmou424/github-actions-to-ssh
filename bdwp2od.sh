@@ -18,7 +18,7 @@ else
 	else
 		location="GithubActions/$3"
 	fi
-	echo "Detected custom location settings, your files will be upload to $location"
+	echo "Detected custom location settings, your files will be upload to /$location"
 fi
 
 echo
