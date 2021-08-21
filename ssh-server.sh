@@ -33,7 +33,11 @@ HAS_ERRORS=$(grep "command failed" < .ngrok.log)
 
 if [[ -z "$HAS_ERRORS" ]]; then
   echo ""
-  echo "$(grep -o -E "addr=//(.+)" < .ngrok.log | sed "s/url=tcp:\/\//\nTo connect ssh $USER@/" | sed "s/addr=\/\/localhost:/On the port /" | sed "s/:/ -p /" | sed "s/connect/connect:/")"
+  echo "SSH:"
+  echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
+  echo ""
+  echo "HTTP:"
+  echo "$(grep -o -E "addr=http://(.+)" < .ngrok.log | sed "s/addr=//" | sed "s/ url=/ -> /")"
   echo ""
 else
   echo "$HAS_ERRORS"
