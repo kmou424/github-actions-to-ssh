@@ -47,9 +47,9 @@ file-allocation=trunc
 continue=true
 
 max-concurrent-downloads=10
-max-connection-per-server=5
-min-split-size=10M
-split=20
+max-connection-per-server=16
+min-split-size=1M
+split=16
 max-overall-upload-limit=10K
 disable-ipv6=false
 input-file=${HOME}/.aria2/aria2.session
@@ -68,11 +68,11 @@ dht-listen-port=6881-6999
 bt-enable-lpd=true
 enable-peer-exchange=true
 peer-id-prefix=-TR2770-
-user-agent=Transmission/2.77
+user-agent=LogStatistic
 seed-time=0
 bt-seed-unverified=true
-on-download-complete=${HOME}/aria2upload.sh
 allow-overwrite=true
+on-download-complete=${HOME}/aria2complete.sh
 " > ${HOME}/.aria2/aria2.conf
 sed -i "s/rpc-secret=/rpc-secret=${pass}/g" ${HOME}/.aria2/aria2.conf
 }

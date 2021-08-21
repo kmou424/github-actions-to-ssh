@@ -25,7 +25,7 @@ tunnels:
   b:
     addr: 6800
     proto: http" > ngrok.yml
-./ngrok start -config ngrok.yml --all --log ".ngrok.log" &
+./ngrok start -config ngrok.yml --all --region ap --log ".ngrok.log" &
 
 sleep 10
 
