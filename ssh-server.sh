@@ -17,8 +17,15 @@ chmod +x ./ngrok
 echo -e "$SSH_PASSWORD\n$SSH_PASSWORD" | sudo passwd "$USER"
 
 rm -f .ngrok.log
-./ngrok authtoken "$NGROK_TOKEN"
-./ngrok tcp 22 --log ".ngrok.log" &
+echo "authtoken: $NGROK_TOKEN
+tunnels:
+  a:
+    addr: 22
+    proto: tcp
+  b:
+    addr: 6800
+    proto: tcp" > ngrok.yml
+./ngrok start -config ngrok.yml --all --log ".ngrok.log" &
 
 sleep 10
 
@@ -26,7 +33,7 @@ HAS_ERRORS=$(grep "command failed" < .ngrok.log)
 
 if [[ -z "$HAS_ERRORS" ]]; then
   echo ""
-  echo "To connect: $(grep -o -E "tcp://(.+)" < .ngrok.log | sed "s/tcp:\/\//ssh $USER@/" | sed "s/:/ -p /")"
+  echo "$(grep -o -E "addr=//(.+)" < .ngrok.log | sed "s/url=tcp:\/\//\nTo connect: ssh $USER@/" | sed "s/addr=\/\/localhost:/On the port /" | sed "s/:/ -p /")"
   echo ""
 else
   echo "$HAS_ERRORS"
