@@ -24,7 +24,7 @@ tunnels:
     proto: tcp
   b:
     addr: 6800
-    proto: tcp" > ngrok.yml
+    proto: http" > ngrok.yml
 ./ngrok start -config ngrok.yml --all --log ".ngrok.log" &
 
 sleep 10
