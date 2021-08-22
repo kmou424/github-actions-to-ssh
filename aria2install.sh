@@ -45,6 +45,7 @@ rpc-secret=
 disk-cache=32M
 file-allocation=trunc
 continue=true
+check-certificate=false
 
 max-concurrent-downloads=10
 max-connection-per-server=16
